@@ -35,6 +35,12 @@
                     A good cover song should </strong>maintain vocal melody consistency with the original song, align the musical style with the provided text tags, ensure clear lyrics synchronized with the original song’s timing, and exhibit harmonious vocal-accompaniment integration with high audio quality.</strong>
                 </p>
             </div>
+            <div class="bg-slate-800/50 p-6 mb-8 rounded-lg shadow-xl border border-slate-700">
+            <h2 class="text-2xl font-bold mb-4 text-cyan-300 tracking-wider">1. English Cover Song Generation</h2>
+            <p class="text-slate-300 text-left">
+                All models were trained solely on English songs. This section presents comparative results for English cover song generation. Results for Chinese cover songs are shown in the next section.
+            </p>
+        </div>
             <table class="w-full table-fixed border-collapse bg-slate-900/70 shadow-2xl rounded-lg border border-slate-700">
                 <thead>
                     <tr class="bg-slate-800">
@@ -43,7 +49,7 @@
                         <th class="px-4 py-3 text-left text-cyan-300 w-[20%]">Lyrics</th>
                         <th class="px-4 py-3 text-left text-cyan-300">SongEcho (Ours)</th>
                         <th class="px-4 py-3 text-left text-cyan-300">SA ControlNet</th>
-                        <th class="px-4 py-3 text-left text-cyan-300">MusecontroLite</th>
+                        <th class="px-4 py-3 text-left text-cyan-300">MusecontrolLite</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -383,6 +389,90 @@
                 </tbody>
             </table>
         </div>
+        <div class="bg-slate-800/50 p-6 mb-8 rounded-lg shadow-xl border border-slate-700">
+    <h2 class="text-2xl font-bold mb-4 text-cyan-300 tracking-wider">2. Chinese Cover Song Generation</h2>
+    <p class="text-slate-300 text-left">
+        Although not trained on Chinese songs, our method supports Chinese cover generation because the foundational Ace-step model can generate Chinese lyrics. As shown in the comparative results, our approach maintains stable melodic control and lyrical fidelity, whereas other methods suffer from significant lyrical errors, melodic drift, and audio quality degradation.
+    </p>
+</div>
+<table class="w-full table-fixed border-collapse bg-slate-900/70 shadow-2xl rounded-lg border border-slate-700">
+    <thead>
+        <tr class="bg-slate-800">
+            <th class="px-4 py-3 text-left text-cyan-300">Original Song</th>
+            <th class="px-4 py-3 text-left text-cyan-300 w-[15%]">Text Tags</th>
+            <th class="px-4 py-3 text-left text-cyan-300 w-[20%]">Lyrics</th>
+            <th class="px-4 py-3 text-left text-cyan-300">SongEcho (Ours)</th>
+            <th class="px-4 py-3 text-left text-cyan-300">SA ControlNet</th>
+            <th class="px-4 py-3 text-left text-cyan-300">MusecontrolLite</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border-b border-slate-700 hover:bg-slate-800">
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./gt/target_wav/beijiaer_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+            <td class="px-4 py-3 align-top">
+                <div class="prompt-container">jazz, smooth jazz, bebop, cool jazz, fusion, latin jazz</div>
+            </td>
+            <td class="px-4 py-3 align-top">
+                <div class="prompt-container">[Verse]<br/>在我的怀里<br/>在你的眼里<br/>那里春风沉醉<br/>那里绿草如茵<br/>月光把爱恋<br/>洒满了湖面<br/>两个人的篝火<br/>照亮整个夜晚<br/><br/>[Chorus]<br/>多少年以后<br/>如云般游走<br/>那变换的脚步<br/>让我们难牵手<br/>这一生一世<br/>有多少你我<br/>被吞没在月光如水的夜里<br/></div>
+            </td>
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./ours/pred_wav/beijiaer_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./Controlnet_lora/pred_wav/beijiaer_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./MusecontroLite/pred_wav/beijiaer_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+        </tr>
+        <tr class="border-b border-slate-700 hover:bg-slate-800">
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./gt/target_wav/tian1tian1xiang3ni3_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+            <td class="px-4 py-3 align-top">
+                <div class="prompt-container">pop ballad, string, piano, sad</div>
+            </td>
+            <td class="px-4 py-3 align-top">
+                <div class="prompt-container">[Verse]<br/>当我伫立在窗前<br/>你越走越远<br/>我的每一次心跳<br/>你是否听见<br/>当我徘徊在深夜<br/>你在我心田<br/>你的每一句誓言<br/>回荡在耳边<br/><br/>[Pre-Chorus]<br/>隐隐约约<br/>闪动的双眼<br/>藏着你的羞怯<br/>加深我的思念<br/>两颗心的交界<br/>你一定会看见<br/>只要你愿意走向前<br/><br/>[Chorus]<br/>天天想你<br/>天天问自己<br/>到什么时候才能告诉你<br/>天天想你<br/>天天守住一颗心<br/>把我最好的爱留给你</div>
+            </td>
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./ours/pred_wav/tian1tian1xiang3ni3_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./Controlnet_lora/pred_wav/tian1tian1xiang3ni3_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+            <td class="px-4 py-3 align-middle">
+                <audio controls class="w-full">
+                    <source src="./MusecontroLite/pred_wav/tian1tian1xiang3ni3_1.mp3" type="audio/mpeg">
+                    Audio not supported
+                </audio>
+            </td>
+        </tr>
+        </tbody>
+        </table>
     </body>
     </html>
     
